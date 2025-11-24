@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "paradoc" %}
-{% set version = "0.3.3" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://github.com/Krande/paradoc/archive/v{{ version }}.tar.gz
-  sha256: b82ee4c9bc990e339f3341559dd9bd464efb3cf3c7105af5d8ef35920a0b03d4
+  sha256: b5b0ba186090f9c83aeece75fa6de51ed5a09fc860aab6f3c74b5f46b221f04f
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - paradoc=paradoc.cli_app:app
