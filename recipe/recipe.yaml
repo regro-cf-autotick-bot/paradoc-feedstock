@@ -3,7 +3,7 @@ schema_version: 1
 context:
   python_min: 3.10
   name: paradoc
-  version: 0.4.0
+  version: "0.5.0"
 
 package:
   name: ${{ name }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/Krande/paradoc/archive/v${{ version }}.tar.gz
-  sha256: b5b0ba186090f9c83aeece75fa6de51ed5a09fc860aab6f3c74b5f46b221f04f
+  sha256: eb7da009925546283bd0a283e75503b41a63be624e9054504ccae4b010610eae
   patches:
     - patches/add_future_annotations.patch
 
@@ -48,10 +48,9 @@ requirements:
     - if: unix
       then: __unix
     - if: win
-      then: __win
-    - if: win
-      then: pywin32
-
+      then:
+        - __win
+        - pywin32
 tests:
   - files:
       source:
